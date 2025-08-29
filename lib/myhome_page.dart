@@ -20,6 +20,8 @@ class _MyHomePageState extends State<MyHomePage> {
     FirebaseMessaging.instance.subscribeToTopic("codewithsan");
     // Foreground message
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print(message.notification!.title);
+      print(message.notification!.body.toString());
       NotificationService.showNotification(
         title: message.notification?.title ?? "No Title",
         body: message.notification?.body ?? "No Body",
